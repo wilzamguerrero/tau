@@ -1,0 +1,293 @@
+/* ===================== CUADRICULA Y TARJETAS ===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+/* separador de seccion a todo lo ancho de la cuadricula */
+.divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0 2px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #000;
+  background: var(--acc);
+  border: var(--border-w) solid #000;
+  box-shadow: 4px 4px 0 var(--shadow);
+  padding: 9px 14px;
+}
+
+.divider .divider-count {
+  margin-left: auto;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  background: #000;
+  color: var(--acc);
+  padding: 3px 9px;
+}
+
+.divider-bad { background: var(--bad); color: #fff; }
+.divider-bad .divider-count { background: #000; color: var(--bad); }
+
+.divider.hidden-card { display: none; }
+
+.card {
+  background: var(--panel);
+  border: var(--border-w) solid var(--line-strong);
+  box-shadow: var(--shadow-lg);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  /* la tarjeta se ajusta al contenido y hace scroll interno si se pasa */
+  max-height: 720px;
+  overflow: hidden;
+}
+
+.card.hidden-card { display: none; }
+.card-flat    { max-height: none; }
+.card-missing { border-color: var(--bad); }
+.card-empty   { border-color: var(--warn); }
+
+/* ---- Encabezado ---- */
+.card-header {
+  background: var(--panel-2);
+  border-bottom: var(--border-w) solid var(--line-strong);
+  padding: 11px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  flex: 1;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.student-title {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-chip {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--acc);
+  color: #000;
+  border: var(--border-w) solid #000;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+/* ---- Estado del emparejamiento ---- */
+.match-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  white-space: nowrap;
+  border: var(--border-w) solid currentColor;
+  width: fit-content;
+}
+
+.match-chip .icon { width: 13px; height: 13px; }
+
+.match-exact   { color: var(--ok);     background: rgba(53, 208, 127, 0.10); }
+.match-fuzzy   { color: var(--warn);   background: rgba(245, 165, 36, 0.10); }
+.match-dup     { color: var(--warn);   background: rgba(245, 165, 36, 0.10); }
+.match-none    { color: var(--bad);    background: rgba(255, 77, 77, 0.10); }
+.match-manual  { color: var(--manual); background: rgba(167, 139, 250, 0.10); }
+.match-empty   { color: var(--warn);   background: rgba(245, 165, 36, 0.10); }
+.match-missing { color: var(--bad);    background: rgba(255, 77, 77, 0.12); }
+
+/* ---- Campo de nota ---- */
+.grade-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grade-input-container label {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.grade-input {
+  width: 78px;
+  padding: 7px;
+  background: var(--bg);
+  color: var(--acc);
+  border: var(--border-w) solid var(--line-strong);
+  border-radius: 0;
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.grade-input:focus {
+  outline: none;
+  border-color: var(--acc);
+}
+
+/* La nota se recorto al maximo de la escala: aviso visual breve */
+.grade-input.grade-clamped {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+/* ---- Asignacion manual ---- */
+.assign-row {
+  background: var(--panel-3);
+  border-bottom: var(--border-w) solid var(--line);
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.assign-row label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.assign-select {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  color: var(--ink);
+  border: var(--border-w) solid var(--line);
+  border-radius: 0;
+  padding: 6px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
+
+.assign-select:focus {
+  outline: none;
+  border-color: var(--acc);
+}
+
+/* ---- Cuerpo ---- */
+.card-body {
+  flex: 1;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  background: var(--panel-deep);
+}
+
+.card-body::-webkit-scrollbar { width: 10px; }
+.card-body::-webkit-scrollbar-track { background: #0d0d11; }
+.card-body::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border: var(--border-w) solid #0d0d11;
+}
+
+.files-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  background: var(--panel-2);
+  border: var(--border-w) solid var(--line);
+  padding: 4px 10px;
+}
+
+.file-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--info);
+  background: var(--panel);
+  border-left: 4px solid var(--info);
+  padding: 6px 10px;
+  word-break: break-all;
+}
+
+.file-size {
+  color: var(--muted);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* ---- Sin entrega / carpeta vacia ---- */
+.missing-note,
+.empty-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 3px dashed;
+}
+
+.missing-note { border-color: var(--bad);  background: rgba(255, 77, 77, 0.06);  color: #ffc9c9; }
+.empty-note   { border-color: var(--warn); background: rgba(245, 165, 36, 0.06); color: #ffe2ab; }
+
+.missing-note .missing-icon { color: var(--bad); }
+.empty-note   .missing-icon { color: var(--warn); }
+
+.missing-title {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.missing-sub {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  opacity: 0.92;
+  max-width: 42ch;
+}

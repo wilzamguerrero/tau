@@ -1,0 +1,19 @@
+/* =========================================================
+   Punto de entrada de estilos.
+   El orden importa: tokens -> base -> componentes -> layout
+   (el layout lleva los ajustes responsive y de impresion,
+   que deben poder sobreescribir a los componentes).
+   ========================================================= */
+@import './tokens.css';
+@import './base.css';
+
+@import './components/topbar.css';
+@import './components/button.css';
+@import './components/steps.css';
+@import './components/status.css';
+@import './components/toolbar.css';
+@import './components/card.css';
+@import './components/preview.css';
+@import './components/summary.css';
+
+@import './layout.css';

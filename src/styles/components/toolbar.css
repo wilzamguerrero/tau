@@ -1,0 +1,83 @@
+/* ===================== BARRA DE HERRAMIENTAS ===================== */
+.toolbar {
+  display: none;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  background: var(--panel);
+  border: var(--border-w) solid var(--line-strong);
+  box-shadow: var(--shadow-md);
+  padding: 12px 15px;
+  margin-bottom: 20px;
+}
+
+.toolbar.is-visible { display: flex; }
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: var(--border-w) solid var(--line-strong);
+  padding: 0 10px;
+}
+
+.field [data-icon] { color: var(--muted); }
+
+.field input,
+.field select {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  padding: 9px 2px;
+  min-width: 210px;
+}
+
+.field select {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.field select option {
+  background: var(--panel-2);
+  color: var(--ink);
+}
+
+.field:focus-within { border-color: var(--acc); }
+
+/* ===================== LEYENDA DE COLORES ===================== */
+.legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #000;
+  display: inline-block;
+}
+
+.dot-ok      { background: var(--ok); }
+.dot-warn    { background: var(--warn); }
+.dot-none    { background: var(--bad); }
+.dot-empty   { background: var(--warn); }
+.dot-missing { background: var(--bad); }

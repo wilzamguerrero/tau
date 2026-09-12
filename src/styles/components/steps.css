@@ -1,0 +1,47 @@
+/* ===================== PASOS 01 / 02 / 03 ===================== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--panel);
+  border: var(--border-w) solid var(--line-strong);
+  box-shadow: var(--shadow-md);
+  padding: 14px 16px;
+}
+
+.step-num {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--acc);
+  line-height: 1;
+  border-right: var(--border-w) solid var(--line);
+  padding-right: 14px;
+}
+
+.step-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-title {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.step-desc {
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.35;
+}

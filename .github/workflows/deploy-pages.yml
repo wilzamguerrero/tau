@@ -1,0 +1,56 @@
+name: Desplegar en GitHub Pages
+
+# GitHub Pages sirve el sitio en https://USUARIO.github.io/tau/, no en la
+# raiz del dominio. Por eso se compila con BASE_PATH=/tau/: es lo que hace
+# que los archivos JS y CSS se busquen en la ruta correcta.
+#
+# Si el repositorio se renombra, hay que cambiar BASE_PATH aqui.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez; no se cancela el que ya esta corriendo.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Compilar
+        run: npm run build
+        env:
+          BASE_PATH: /tau/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

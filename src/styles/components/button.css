@@ -1,0 +1,53 @@
+/* ===================== BOTONES ===================== */
+.btn {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  background: var(--panel-2);
+  color: var(--ink);
+  border: var(--border-w) solid var(--line-strong);
+  border-radius: 0;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.08s linear, box-shadow 0.08s linear, background 0.12s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+  background: var(--panel-3);
+}
+
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--shadow);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-accent { background: var(--acc);  color: #000;     border-color: #000; }
+.btn-ok     { background: var(--ok);   color: #04240f;  border-color: #000; }
+.btn-warn   { background: var(--warn); color: #2a1800;  border-color: #000; }
+.btn-bad    { background: var(--bad);  color: #2b0000;  border-color: #000; }
+
+.btn-accent:hover { background: var(--acc-hover); }
+.btn-ok:hover     { background: var(--ok-hover); }
+.btn-warn:hover   { background: var(--warn-hover); }
+.btn-bad:hover    { background: var(--bad-hover); }
+
+.btn-sm {
+  padding: 6px 10px;
+  font-size: 0.68rem;
+}

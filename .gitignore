@@ -1,0 +1,42 @@
+# Dependencias
+node_modules/
+
+# Builds
+dist/
+dist-offline/
+dev-dist/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+
+# Entornos y credenciales
+.env
+.env.*
+!.env.example
+
+# Herramientas de despliegue
+.vercel/
+.wrangler/
+.cache/
+
+# Sistema operativo / editores
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Datos reales de estudiantes: NUNCA se suben al repositorio
+*.xlsx
+*.xls
+Avance_Notas_TAU.json
+Notas_Importar_TAU_*.csv
+entregas/
+planillas/

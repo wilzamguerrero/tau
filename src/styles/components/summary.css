@@ -1,0 +1,107 @@
+/* ===================== CONSOLIDADO ===================== */
+#summaryView {
+  display: none;
+  background: var(--panel);
+  border: var(--border-w) solid var(--line-strong);
+  box-shadow: var(--shadow-lg);
+  padding: 20px;
+}
+
+#summaryView.is-visible { display: block; }
+
+.summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 3px solid var(--acc);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+
+.summary-head h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.summary-note {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.table-wrap {
+  overflow: auto;
+  max-height: 72vh;
+  border: var(--border-w) solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+  text-align: left;
+}
+
+th {
+  background: var(--panel-3);
+  color: var(--acc);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-bottom: var(--border-w) solid var(--acc);
+}
+
+tbody tr:nth-child(even) { background: var(--panel-deep); }
+tbody tr:hover { background: #17171c; }
+
+td {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+}
+
+.th-historica {
+  color: var(--muted);
+  border-bottom-color: var(--line-strong);
+}
+
+.tag-fuera {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--warn);
+  border: 1px solid var(--warn);
+}
+
+tbody tr.fila-fuera { opacity: 0.75; }
+
+.badge-zero  { color: var(--bad); font-weight: 800; }
+.badge-grade { color: var(--ok);  font-weight: 800; }
+
+.final-grade {
+  color: var(--acc);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.col-name {
+  white-space: nowrap;
+  font-family: var(--sans);
+}

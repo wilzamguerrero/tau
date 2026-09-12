@@ -1,0 +1,187 @@
+/* ===================== PREVISUALIZACIONES ===================== */
+.file-container {
+  width: 100%;
+  min-height: 470px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border: var(--border-w) solid var(--line);
+  overflow: hidden;
+}
+
+.file-container img,
+.file-container video {
+  max-width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+}
+
+.file-container iframe {
+  width: 100%;
+  height: 530px;
+  border: none;
+  background: #fff;
+}
+
+.file-container audio { width: 100%; }
+
+/* Los contenidos que ya traen su propio scroll no necesitan el alto minimo */
+.file-container:has(.text-preview),
+.file-container:has(.doc-preview),
+.file-container:has(.zip-list),
+.file-container:has(.file-generic) {
+  min-height: 0;
+  align-items: stretch;
+  background: #0d0d10;
+}
+
+/* ---- Archivo no incrustable ---- */
+.file-generic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 30px;
+  text-align: center;
+  color: #c3c3ce;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.file-generic .file-generic-icon { color: var(--muted); }
+
+.file-generic-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.file-generic-slot { width: 100%; }
+
+/* ---- Texto plano y codigo ---- */
+.text-preview {
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  max-height: 520px;
+  overflow: auto;
+  background: #0b0b0e;
+  color: #d5d5dd;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---- Word / Excel renderizados ---- */
+.doc-preview {
+  width: 100%;
+  max-height: 520px;
+  overflow: auto;
+  background: #fff;
+  color: #111;
+  padding: 20px;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.doc-preview img { max-width: 100%; }
+.doc-preview table { border-collapse: collapse; font-size: 0.74rem; }
+.doc-preview th,
+.doc-preview td {
+  border: 1px solid #bbb;
+  color: #111;
+  padding: 4px 7px;
+}
+.doc-preview th { background: #eee; }
+.doc-preview h4 {
+  margin: 12px 0 5px;
+  color: #111;
+  font-family: var(--mono);
+}
+
+.sheet-scroll { overflow-x: auto; }
+
+/* ---- Contenido de archivos .zip ---- */
+.zip-list {
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zip-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--warn);
+  border-bottom: var(--border-w) solid var(--line);
+  padding-bottom: 8px;
+}
+
+.zip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--panel);
+  border: var(--border-w) solid var(--line);
+  padding: 7px 10px;
+}
+
+.zip-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 0.71rem;
+  color: var(--info);
+  word-break: break-all;
+}
+
+.zip-holder { background: #000; }
+.zip-holder:empty { display: none; }
+.zip-holder.collapsed { display: none; }
+
+.zip-holder img,
+.zip-holder video {
+  max-width: 100%;
+  max-height: 420px;
+  display: block;
+  margin: 0 auto;
+}
+
+.zip-holder iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  background: #fff;
+}
+
+/* ---- Notas de carga y error ---- */
+.loading-note,
+.preview-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  padding: 18px;
+  width: 100%;
+}
+
+.loading-note { color: var(--muted); }
+.preview-error { color: var(--bad); }
